@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service SortService {
+  rpc Sort (Array) returns (Result);
+}
+
+message Array {
+  repeated int32 arr = 1;
+}
+
+message Result {
+  repeated int32 arr = 1;
+}
