@@ -1,0 +1,88 @@
+===========================
+PYTHON SOCKET SYNTAX
+===========================
+
+# Create TCP socket
+socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Create UDP socket
+socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Bind
+sock.bind((host, port))
+
+# Listen (TCP)
+sock.listen()
+
+# Accept connection (TCP)
+client, addr = sock.accept()
+
+# Connect to server (TCP)
+sock.connect((host, port))
+
+# Send data
+sock.send(data.encode())
+
+# Receive data
+sock.recv(buffer_size)
+
+# UDP send
+sock.sendto(data.encode(), (host, port))
+
+# UDP receive
+data, addr = sock.recvfrom(buffer_size)
+
+# Close
+sock.close()
+
+# Threading (common in servers)
+threading.Thread(target=function, args=(client,)).start()
+
+===========================
+FLASK SYNTAX
+===========================
+
+from flask import Flask, request, jsonify
+
+# Create app
+app = Flask(__name__)
+
+# GET route
+@app.get("/route")
+def func():
+    return "text"
+
+# POST route
+@app.post("/route")
+def func():
+    data = request.get_json()
+    return jsonify(data)
+
+# Path parameter
+@app.get("/user/<id>")
+def user(id):
+    return id
+
+# Query parameters (?q=value)
+request.args.get("q")
+
+# Return JSON
+jsonify({"key": "value"})
+
+# Return with status code
+return jsonify({"error": "msg"}), 400
+
+# Before request hook
+@app.before_request
+def before():
+    pass
+
+# After request hook
+@app.after_request
+def after(response):
+    return response
+
+# Run server
+app.run(debug=True)
+
+
