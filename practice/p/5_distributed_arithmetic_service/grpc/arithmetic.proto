@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package arithmetic;
+
+// The Arithmetic service definition.
+service Arithmetic {
+  rpc Addition (TwoNumbers) returns (Result);
+  rpc Subtraction (TwoNumbers) returns (Result);
+  rpc Multiplication (TwoNumbers) returns (Result);
+}
+
+// Message containing two numbers
+message TwoNumbers {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+// Message containing a single result
+message Result {
+  int32 value = 1;
+}

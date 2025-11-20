@@ -1,0 +1,23 @@
+# 1️⃣ Install Pyro5
+pip install Pyro5
+
+# 2️⃣ (Optional) Start Pyro Name Server
+# This is required if you want to use the nameserver for easier object lookup
+python -m Pyro5.nameserver
+
+# 3️⃣ Run your Pyro server
+# Open a new terminal
+python server.py
+# The server will print a URI like:
+# PYRO:obj_1234567890abcdef@localhost:12345
+# Copy this URI for the client
+
+# 4️⃣ Run your Pyro client
+# Open another terminal
+python client.py
+# Make sure the URI in client.py matches the one printed by the server
+
+# 5️⃣ Expected output (client terminal)
+# Addition 15 + 7 = 22
+# Subtraction 30 - 12 = 18
+# Multiplication 6 * 8 = 48

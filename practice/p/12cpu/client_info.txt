@@ -1,0 +1,2 @@
+('127.0.0.1', 59770) -> {'time': '2025-11-20 19:37:38', 'cpu_percent': 6.4, 'memory_percent': 64.4, 'platform': 'macOS-26.1-arm64-arm-64bit', 'hostname': 'Rayyans-MacBook-Air'}
+('127.0.0.1', 59771) -> {'time': '2025-11-20 19:37:44', 'cpu_percent': 6.8, 'memory_percent': 65.4, 'platform': 'macOS-26.1-arm64-arm-64bit', 'hostname': 'Rayyans-MacBook-Air'}
