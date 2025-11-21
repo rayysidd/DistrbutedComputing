@@ -45,8 +45,13 @@ public class BankSystem {
     }
 
     static void performTransaction(List<Server> servers, int amount) {
-        Server leader = servers.stream().filter(s -> s.isLeader).findFirst().orElse(null);
-
+        Server leader = null;
+        for (Server s : servers) {
+            if (s.alive) {
+                if (leader == null || s.id > leader.id)
+                    leader = s;
+            }
+        }
         if (leader == null || !leader.alive) {
             System.out.println("No leader available! Elect a leader first.");
             return;
